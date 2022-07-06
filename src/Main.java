@@ -27,7 +27,9 @@ public class Main {
         zipFiles(String.valueOf(zip), savesList);
         for (var item : listFiles) {
            if (item.getName().contains(".dat")) {
-               item.delete();
+               if (item.delete()) {
+                   System.out.println(item.getName() + " удален.");
+               }
            }
         }
         openZip(String.valueOf(zip), String.valueOf(savegames));
